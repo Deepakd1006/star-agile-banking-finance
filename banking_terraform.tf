@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-east-1"
-  access_key = "AKIATBRPQHEAMAGVK763"
-  secret_key = "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"
+  access_key = "Enter_AWS_access_key"
+  secret_key = "Enter_AWS_secret_key"
 }
 
 # Infra-Structure readyness for project1 : Banking
