@@ -1,0 +1,40 @@
+# nginx-deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myproject1
+  labels:
+    app: myproject1-lbl
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: Banking&Finance
+    spec:
+      containers:
+      - name: FinanceMe
+        image: chrisdee10/chrisdee10/Banking&Finance:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
+  selector:
+    matchLabels:
+      app: Banking&Finance
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myproject1-service
+  labels:
+    app: myproject1-lbl
+spec:
+  type: NodePort
+  selector:
+    app: Banking&Finance
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+      nodePort: 30080
