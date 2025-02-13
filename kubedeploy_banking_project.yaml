@@ -10,17 +10,17 @@ spec:
   template:
     metadata:
       labels:
-        app: Banking&Finance
+        app: BankingFinance
     spec:
       containers:
-      - name: FinanceMe
-        image: chrisdee10/chrisdee10/Banking&Finance:latest
+      - name: financeme
+        image: chrisdee10/bankingfinance:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
   selector:
     matchLabels:
-      app: Banking&Finance
+      app: BankingFinance
 
 ---
 apiVersion: v1
@@ -32,9 +32,9 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: Banking&Finance
+    app: BankingFinance
   ports:
     - protocol: TCP
       port: 8081
       targetPort: 8081
-      nodePort: 31030
+      nodePort: 31037
