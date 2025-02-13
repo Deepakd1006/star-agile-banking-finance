@@ -2,9 +2,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myproject1
+  name: myproject
   labels:
-    app: myproject1-lbl
+    app: myproject-lbl
 spec:
   replicas: 3
   template:
@@ -26,9 +26,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: myproject1-service
+  name: myproject-service
   labels:
-    app: myproject1-lbl
+    app: myproject-lbl
 spec:
   type: NodePort
   selector:
